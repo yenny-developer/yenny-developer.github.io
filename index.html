@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yenny Setyawati — IT Professional & Software Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue-dark:   #0D2B4E;
+      --blue-mid:    #1B5E9B;
+      --blue-light:  #3B8FD4;
+      --blue-pale:   #EAF2FB;
+      --accent:      #C8941A;
+      --white:       #FFFFFF;
+      --gray-50:     #F7F9FC;
+      --gray-100:    #EEF2F7;
+      --gray-300:    #C4CDD8;
+      --gray-500:    #6B7A8D;
+      --gray-700:    #3D4D5C;
+      --text:        #1A2533;
+      --radius:      12px;
+      --shadow-sm:   0 2px 8px rgba(13,43,78,0.08);
+      --shadow-md:   0 8px 32px rgba(13,43,78,0.12);
+      --shadow-lg:   0 20px 60px rgba(13,43,78,0.16);
+      --transition:  0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── LANGUAGE TOGGLE ── */
+    #lang-toggle {
+      position: fixed;
+      top: 20px; right: 24px;
+      z-index: 1000;
+      display: flex;
+      background: var(--white);
+      border: 1.5px solid var(--gray-300);
+      border-radius: 100px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    #lang-toggle button {
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--gray-500);
+      transition: var(--transition);
+      letter-spacing: 0.5px;
+    }
+    #lang-toggle button.active {
+      background: var(--blue-mid);
+      color: var(--white);
+      border-radius: 100px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(150deg, var(--blue-dark) 0%, #1a3a5c 55%, var(--blue-mid) 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(59,143,212,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(200,148,26,0.08) 0%, transparent 50%);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -80px; top: 50%;
+      transform: translateY(-50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 0 0 60px rgba(255,255,255,0.02), 0 0 0 120px rgba(255,255,255,0.015);
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 48px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(200,148,26,0.18);
+      color: #F0C060;
+      border: 1px solid rgba(200,148,26,0.35);
+      padding: 5px 16px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(42px, 6vw, 72px);
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      max-width: 720px;
+    }
+    .hero h1 em {
+      color: #7FC4F5;
+      font-style: normal;
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
+      max-width: 560px;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 48px;
+    }
+    .hero-chip {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.9);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(200,148,26,0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(200,148,26,0.45);
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.7);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .hero-stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 36px;
+      color: var(--white);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-100);
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      height: 60px;
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: var(--blue-dark);
+      text-decoration: none;
+      margin-right: auto;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--gray-700);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color var(--transition);
+      white-space: nowrap;
+    }
+    nav a:hover { color: var(--blue-mid); }
+
+    /* ── SECTIONS ── */
+    section { padding: 96px 48px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--blue-mid);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      color: var(--blue-dark);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .section-sub {
+      font-size: 16px;
+      color: var(--gray-500);
+      max-width: 580px;
+      margin-bottom: 56px;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--gray-50); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--gray-700);
+      margin-bottom: 20px;
+      font-size: 15.5px;
+    }
+    .about-text strong { color: var(--blue-dark); }
+
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .skill-group-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: 10px;
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .skill-tag {
+      background: var(--white);
+      border: 1.5px solid var(--gray-100);
+      color: var(--blue-dark);
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .skill-tag:hover {
+      border-color: var(--blue-mid);
+      color: var(--blue-mid);
+      transform: translateY(-1px);
+    }
+    .skill-tag.highlight {
+      background: var(--blue-pale);
+      border-color: rgba(27,94,155,0.25);
+      color: var(--blue-mid);
+    }
+
+    /* ── PORTFOLIO ── */
+    #portfolio { background: var(--white); }
+
+    .portfolio-filter {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1.5px solid var(--gray-200, #E0E6EF);
+      background: transparent;
+      color: var(--gray-500);
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--blue-dark);
+      border-color: var(--blue-dark);
+      color: var(--white);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    .project-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-100);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(27,94,155,0.2);
+    }
+
+    .project-thumb {
+      height: 180px;
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-thumb::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.06) 0%, transparent 60%);
+    }
+    .project-thumb-icon {
+      font-size: 48px;
+      opacity: 0.85;
+      position: relative;
+      z-index: 1;
+    }
+    .project-thumb-label {
+      position: absolute;
+      bottom: 12px; right: 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      z-index: 1;
+    }
+    .project-thumb.mobile-bg {
+      background: linear-gradient(135deg, #0D3B2E 0%, #1A6B52 100%);
+    }
+    .project-thumb.desktop-bg {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-mid) 100%);
+    }
+    .screenshot-badge {
+      position: absolute;
+      top: 12px; left: 14px;
+      background: rgba(200,148,26,0.9);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 3px 10px;
+      border-radius: 100px;
+      z-index: 2;
+    }
+
+    .project-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .project-type {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--blue-light);
+      margin-bottom: 8px;
+    }
+    .project-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--blue-dark);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .project-desc {
+      font-size: 14px;
+      color: var(--gray-500);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--gray-100);
+    }
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .stack-tag {
+      background: var(--blue-pale);
+      color: var(--blue-mid);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+    .project-year {
+      font-size: 12px;
+      color: var(--gray-300);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--gray-50); }
+    .timeline { position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 18px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--blue-mid), var(--blue-pale));
+    }
+    .timeline-item {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 40px;
+      position: relative;
+    }
+    .timeline-dot {
+      width: 38px; height: 38px;
+      min-width: 38px;
+      background: var(--blue-mid);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      box-shadow: 0 0 0 4px var(--blue-pale);
+      z-index: 1;
+    }
+    .timeline-body {
+      background: var(--white);
+      border: 1.5px solid var(--gray-100);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      flex: 1;
+      box-shadow: var(--shadow-sm);
+    }
+    .timeline-period {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--blue-mid);
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .timeline-role {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--blue-dark);
+      margin-bottom: 2px;
+    }
+    .timeline-company {
+      font-size: 14px;
+      color: var(--gray-500);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .timeline-body ul {
+      padding-left: 20px;
+    }
+    .timeline-body li {
+      font-size: 14px;
+      color: var(--gray-700);
+      margin-bottom: 6px;
+      line-height: 1.65;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--blue-dark);
+      text-align: center;
+    }
+    #contact .section-label { color: #7FC4F5; }
+    #contact .section-title { color: var(--white); }
+    #contact .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto 48px; }
+
+    .contact-cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .contact-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 24px 32px;
+      text-align: center;
+      text-decoration: none;
+      transition: var(--transition);
+      min-width: 180px;
+    }
+    .contact-card:hover {
+      background: rgba(255,255,255,0.13);
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.25);
+    }
+    .contact-card-icon { font-size: 28px; margin-bottom: 10px; }
+    .contact-card-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 4px;
+    }
+    .contact-card-value {
+      font-size: 14px;
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #081926;
+      text-align: center;
+      padding: 28px 48px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── HIDE/SHOW LANG ── */
+    [data-id] { display: none; }
+    .lang-en [data-id="en"] { display: revert; }
+    .lang-id [data-id="id"] { display: revert; }
+    span[data-id] { display: none; }
+    .lang-en span[data-id="en"] { display: inline; }
+    .lang-id span[data-id="id"] { display: inline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      section { padding: 64px 24px; }
+      .hero-inner { padding: 100px 24px 64px; }
+      .nav-inner { padding: 0 24px; gap: 24px; }
+      nav a.hide-sm { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-stats { gap: 28px; flex-wrap: wrap; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .timeline::before { left: 16px; }
+      .contact-cards { flex-direction: column; align-items: center; }
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="lang-en">
+
+<!-- LANGUAGE TOGGLE -->
+<div id="lang-toggle">
+  <button onclick="setLang('en')" class="active" id="btn-en">EN</button>
+  <button onclick="setLang('id')" id="btn-id">ID</button>
+</div>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">
+      <span data-id="en">Available for Freelance</span>
+      <span data-id="id">Tersedia untuk Freelance</span>
+    </div>
+    <h1>
+      <span data-id="en">Building Systems<br>That <em>Actually Work</em></span>
+      <span data-id="id">Membangun Sistem<br>Yang <em>Benar-Benar Bekerja</em></span>
+    </h1>
+    <p class="hero-sub">
+      <span data-id="en">Hi, I'm Yenny — an IT professional with 20+ years of experience designing and building complete business software, from desktop to mobile.</span>
+      <span data-id="id">Hai, saya Yenny — profesional IT dengan 20+ tahun pengalaman merancang dan membangun perangkat lunak bisnis lengkap, dari desktop hingga mobile.</span>
+    </p>
+    <div class="hero-chips">
+      <span class="hero-chip">Delphi / Desktop</span>
+      <span class="hero-chip">Flutter / Mobile</span>
+      <span class="hero-chip">MySQL · Firebase</span>
+      <span class="hero-chip">System Analysis</span>
+      <span class="hero-chip">Full Project Lifecycle</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#portfolio" class="btn-primary">
+        <span data-id="en">View My Work</span>
+        <span data-id="id">Lihat Portofolio</span>
+        ↓
+      </a>
+      <a href="#contact" class="btn-outline">
+        <span data-id="en">Contact Me</span>
+        <span data-id="id">Hubungi Saya</span>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">20+</div>
+        <div class="hero-stat-label">
+          <span data-id="en">Years Experience</span>
+          <span data-id="id">Tahun Pengalaman</span>
+        </div>
+      </div>
+      <div>
+        <div class="hero-stat-num">20+</div>
+        <div class="hero-stat-label">
+          <span data-id="en">Clients Served</span>
+          <span data-id="id">Klien Dilayani</span>
+        </div>
+      </div>
+      <div>
+        <div class="hero-stat-num">10+</div>
+        <div class="hero-stat-label">
+          <span data-id="en">Systems Built</span>
+          <span data-id="id">Sistem Dibangun</span>
+        </div>
+      </div>
+      <div>
+        <div class="hero-stat-num">6</div>
+        <div class="hero-stat-label">
+          <span data-id="en">Industries</span>
+          <span data-id="id">Industri</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Yenny Setyawati</a>
+    <a href="#about">
+      <span data-id="en">About</span>
+      <span data-id="id">Tentang</span>
+    </a>
+    <a href="#portfolio" class="hide-sm">
+      <span data-id="en">Portfolio</span>
+      <span data-id="id">Portofolio</span>
+    </a>
+    <a href="#experience" class="hide-sm">
+      <span data-id="en">Experience</span>
+      <span data-id="id">Pengalaman</span>
+    </a>
+    <a href="#contact">
+      <span data-id="en">Contact</span>
+      <span data-id="id">Kontak</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">
+      <span data-id="en">Who I Am</span>
+      <span data-id="id">Tentang Saya</span>
+    </p>
+    <h2 class="section-title">
+      <span data-id="en">From Requirements to Deployment —<br>I Handle the Full Cycle</span>
+      <span data-id="id">Dari Kebutuhan hingga Deployment —<br>Saya Menangani Semuanya</span>
+    </h2>
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <p data-id="en">I'm a software developer and system analyst based in Surabaya, Indonesia with over 20 years of hands-on experience building custom business software. I started my career at a Netherlands-based software house and went on to co-found my own company — growing it from 3 to 12 people over 8 years.</p>
+        <p data-id="id">Saya adalah pengembang perangkat lunak dan analis sistem yang berbasis di Surabaya, Indonesia dengan pengalaman lebih dari 20 tahun membangun perangkat lunak bisnis khusus. Saya memulai karier di software house berbasis Belanda dan kemudian mendirikan perusahaan sendiri — mengembangkannya dari 3 menjadi 12 orang selama 8 tahun.</p>
+
+        <p data-id="en">My strength is in understanding what a business actually needs — then designing and building the right system from scratch. I've worked across <strong>retail, distribution, insurance, trucking, manufacturing, ticketing, inventory, and HR</strong>.</p>
+        <p data-id="id">Kekuatan saya adalah memahami apa yang sebenarnya dibutuhkan bisnis — lalu merancang dan membangun sistem yang tepat dari awal. Saya telah bekerja di sektor <strong>ritel, distribusi, asuransi, trucking, manufaktur, ticketing, inventaris, dan HRD</strong>.</p>
+
+        <p data-id="en">I work <strong>independently, remotely, and deliver on time</strong>. I'm equally comfortable coding, debugging a live production issue, or sitting in a meeting with a client to map out their workflow.</p>
+        <p data-id="id">Saya bekerja <strong>secara mandiri, remote, dan tepat waktu</strong>. Saya sama nyamannya dalam coding, mendebug masalah produksi langsung, maupun meeting dengan klien untuk memetakan alur kerja mereka.</p>
+      </div>
+
+      <div class="skills-grid fade-up">
+        <div>
+          <p class="skill-group-title">
+            <span data-id="en">Core Technical Skills</span>
+            <span data-id="id">Keahlian Teknis Utama</span>
+          </p>
+          <div class="skill-tags">
+            <span class="skill-tag highlight">Delphi (Desktop)</span>
+            <span class="skill-tag highlight">Flutter (Mobile)</span>
+            <span class="skill-tag highlight">System Analysis</span>
+            <span class="skill-tag highlight">MySQL</span>
+            <span class="skill-tag highlight">Firebase</span>
+            <span class="skill-tag">MS Access</span>
+            <span class="skill-tag">SQL Server</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Database Design</span>
+            <span class="skill-tag">OOP</span>
+            <span class="skill-tag">GitHub</span>
+          </div>
+        </div>
+        <div>
+          <p class="skill-group-title">
+            <span data-id="en">Additional Skills</span>
+            <span data-id="id">Keahlian Tambahan</span>
+          </p>
+          <div class="skill-tags">
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">Express.js</span>
+            <span class="skill-tag">Silverstripe</span>
+            <span class="skill-tag">Linux Server</span>
+            <span class="skill-tag">Excel</span>
+          </div>
+        </div>
+        <div>
+          <p class="skill-group-title">
+            <span data-id="en">Soft Skills</span>
+            <span data-id="id">Keahlian Non-Teknis</span>
+          </p>
+          <div class="skill-tags">
+            <span class="skill-tag highlight">Self-managed</span>
+            <span class="skill-tag highlight">Detail-oriented</span>
+            <span class="skill-tag">Problem Solving</span>
+            <span class="skill-tag">Client Communication</span>
+            <span class="skill-tag">Debugging Mindset</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PORTFOLIO ── -->
+<section id="portfolio">
+  <div class="section-inner">
+    <p class="section-label">
+      <span data-id="en">Selected Work</span>
+      <span data-id="id">Karya Terpilih</span>
+    </p>
+    <h2 class="section-title">
+      <span data-id="en">Projects & Systems</span>
+      <span data-id="id">Proyek & Sistem</span>
+    </h2>
+    <p class="section-sub">
+      <span data-id="en">A selection of business systems I've designed and built — each covering the full cycle from requirements to deployment.</span>
+      <span data-id="id">Pilihan sistem bisnis yang telah saya rancang dan bangun — masing-masing mencakup siklus penuh dari kebutuhan hingga deployment.</span>
+    </p>
+
+    <div class="portfolio-filter">
+      <button class="filter-btn active" onclick="filterProjects('all', this)">
+        <span data-id="en">All</span><span data-id="id">Semua</span>
+      </button>
+      <button class="filter-btn" onclick="filterProjects('desktop', this)">Desktop</button>
+      <button class="filter-btn" onclick="filterProjects('mobile', this)">Mobile</button>
+    </div>
+
+    <div class="projects-grid" id="projects-grid">
+
+      <!-- PROJECT 1 -->
+      <div class="project-card fade-up" data-category="desktop">
+        <div class="project-thumb desktop-bg">
+          <span class="project-thumb-icon">🏪</span>
+          <span class="project-thumb-label">Desktop App</span>
+          <!-- REPLACE: <img src="screenshots/pos-retail-2022.png" alt="POS System" style="width:100%;height:100%;object-fit:cover;"> -->
+        </div>
+        <div class="project-body">
+          <p class="project-type">
+            <span data-id="en">Retail · Desktop</span>
+            <span data-id="id">Ritel · Desktop</span>
+          </p>
+          <h3 class="project-name">
+            <span data-id="en">POS System — Retail</span>
+            <span data-id="id">Sistem POS — Toko Retail</span>
+          </h3>
+          <p class="project-desc">
+            <span data-id="en">Complete point-of-sale system covering stock management, accounts payable/receivable, and full financial reporting.</span>
+            <span data-id="id">Sistem kasir lengkap mencakup manajemen stok, hutang piutang, dan laporan keuangan lengkap.</span>
+          </p>
+          <div class="project-meta">
+            <div class="project-stack">
+              <span class="stack-tag">Delphi</span>
+              <span class="stack-tag">MySQL</span>
+            </div>
+            <span class="project-year">2022</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project-card fade-up" data-category="desktop">
+        <div class="project-thumb desktop-bg">
+          <span class="project-thumb-icon">🚚</span>
+          <span class="project-thumb-label">Desktop App</span>
+        </div>
+        <div class="project-body">
+          <p class="project-type">
+            <span data-id="en">Distribution · Desktop</span>
+            <span data-id="id">Distribusi · Desktop</span>
+          </p>
+          <h3 class="project-name">
+            <span data-id="en">Distributor Management System</span>
+            <span data-id="id">Sistem Manajemen Distributor</span>
+          </h3>
+          <p class="project-desc">
+            <span data-id="en">Long-running system for distributor operations: stock, accounts payable/receivable, and complete financial reporting. Still actively maintained.</span>
+            <span data-id="id">Sistem operasional distributor jangka panjang: stok, hutang piutang, dan laporan keuangan lengkap. Masih aktif digunakan.</span>
+          </p>
+          <div class="project-meta">
+            <div class="project-stack">
+              <span class="stack-tag">Delphi</span>
+              <span class="stack-tag">MySQL</span>
+            </div>
+            <span class="project-year">2018 – kini</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="project-card fade-up" data-category="mobile">
+        <div class="project-thumb mobile-bg">
+          <span class="project-thumb-icon">📱</span>
+          <span class="project-thumb-label">Mobile App</span>
+        </div>
+        <div class="project-body">
+          <p class="project-type">
+            <span data-id="en">Distribution · Mobile</span>
+            <span data-id="id">Distribusi · Mobile</span>
+          </p>
+          <h3 class="project-name">
+            <span data-id="en">Mobile Distributor App</span>
+            <span data-id="id">Aplikasi Mobile Distributor</span>
+          </h3>
+          <p class="project-desc">
+            <span data-id="en">Mobile solution for distributor field operations — enabling sales agents to process orders, check stock, and sync data in real time.</span>
+            <span data-id="id">Solusi mobile untuk operasional lapangan distributor — memungkinkan agen penjualan memproses pesanan, cek stok, dan sinkronisasi data secara real time.</span>
+          </p>
+          <div class="project-meta">
+            <div class="project-stack">
+              <span class="stack-tag">Flutter</span>
+              <span class="stack-tag">MySQL</span>
+            </div>
+            <span class="project-year">2021</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 4 -->
+      <div class="project-card fade-up" data-category="mobile">
+        <div class="project-thumb mobile-bg">
+          <span class="project-thumb-icon">📍</span>
+          <span class="project-thumb-label">Mobile App</span>
+        </div>
+        <div class="project-body">
+          <p class="project-type">
+            <span data-id="en">Operations · Mobile</span>
+            <span data-id="id">Operasional · Mobile</span>
+          </p>
+          <h3 class="project-name">
+            <span data-id="en">Mobile Tracking App</span>
+            <span data-id="id">Aplikasi Pelacakan Mobile</span>
+          </h3>
+          <p class="project-desc">
+            <span data-id="en">Real-time tracking application for field teams, enabling live location monitoring and activity reporting.</span>
+            <span data-id="id">Aplikasi pelacakan real-time untuk tim lapangan, memungkinkan pemantauan lokasi langsung dan pelaporan aktivitas.</span>
+          </p>
+          <div class="project-meta">
+            <div class="project-stack">
+              <span class="stack-tag">Flutter</span>
+              <span class="stack-tag">MySQL</span>
+            </div>
+            <span class="project-year">2023</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 5 -->
+      <div class="project-card fade-up" data-category="mobile">
+        <div class="project-thumb mobile-bg">
+          <span class="project-thumb-icon">✅</span>
+          <span class="project-thumb-label">Mobile App</span>
+        </div>
+        <div class="project-body">
+          <p class="project-type">
+            <span data-id="en">HR · Mobile</span>
+            <span data-id="id">HRD · Mobile</span>
+          </p>
+          <h3 class="project-name">
+            <span data-id="en">Mobile Attendance App</span>
+            <span data-id="id">Aplikasi Absensi Mobile</span>
+          </h3>
+          <p class="project-desc">
+            <span data-id="en">Employee attendance management application with clock-in/clock-out, leave requests, and attendance reports.</span>
+            <span data-id="id">Aplikasi manajemen absensi karyawan dengan fitur clock-in/clock-out, pengajuan cuti, dan laporan kehadiran.</span>
+          </p>
+          <div class="project-meta">
+            <div class="project-stack">
+              <span class="stack-tag">Flutter</span>
+              <span class="stack-tag">MySQL</span>
+            </div>
+            <span class="project-year">2023</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 6 -->
+      <div class="project-card fade-up" data-category="mobile">
+        <div class="project-thumb mobile-bg">
+          <span class="project-thumb-icon">🛡️</span>
+          <span class="project-thumb-label">Mobile App</span>
+        </div>
+        <div class="project-body">
+          <p class="project-type">
+            <span data-id="en">Insurance · Mobile</span>
+            <span data-id="id">Asuransi · Mobile</span>
+          </p>
+          <h3 class="project-name">
+            <span data-id="en">Insurance Membership App</span>
+            <span data-id="id">Aplikasi Membership Asuransi</span>
+          </h3>
+          <p class="project-desc">
+            <span data-id="en">Mobile application for insurance membership management — member registration, policy tracking, and claims submission.</span>
+            <span data-id="id">Aplikasi mobile untuk manajemen membership asuransi — pendaftaran anggota, pelacakan polis, dan pengajuan klaim.</span>
+          </p>
+          <div class="project-meta">
+            <div class="project-stack">
+              <span class="stack-tag">PHP</span>
+              <span class="stack-tag">MySQL</span>
+            </div>
+            <span class="project-year">2018</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 7 -->
+      <div class="project-card fade-up" data-category="desktop">
+        <div class="project-thumb desktop-bg">
+          <span class="project-thumb-icon">📚</span>
+          <span class="project-thumb-label">Desktop App</span>
+        </div>
+        <div class="project-body">
+          <p class="project-type">
+            <span data-id="en">Distribution · Desktop</span>
+            <span data-id="id">Distribusi · Desktop</span>
+          </p>
+          <h3 class="project-name">
+            <span data-id="en">Book Distributor Membership System</span>
+            <span data-id="id">Sistem Membership Distributor Buku</span>
+          </h3>
+          <p class="project-desc">
+            <span data-id="en">Membership and stock system for a book distributor — covering member management, inventory, AP/AR, and financial reporting.</span>
+            <span data-id="id">Sistem membership dan stok untuk distributor buku — mencakup manajemen anggota, inventaris, hutang piutang, dan laporan keuangan.</span>
+          </p>
+          <div class="project-meta">
+            <div class="project-stack">
+              <span class="stack-tag">Delphi</span>
+              <span class="stack-tag">SQL Server</span>
+            </div>
+            <span class="project-year">2003</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 8 -->
+      <div class="project-card fade-up" data-category="desktop">
+        <div class="project-thumb desktop-bg">
+          <span class="project-thumb-icon">💰</span>
+          <span class="project-thumb-label">Desktop App</span>
+        </div>
+        <div class="project-body">
+          <p class="project-type">
+            <span data-id="en">Retail · Desktop</span>
+            <span data-id="id">Ritel · Desktop</span>
+          </p>
+          <h3 class="project-name">
+            <span data-id="en">Stock & Pricing Tool</span>
+            <span data-id="id">Tools Stok & Harga</span>
+          </h3>
+          <p class="project-desc">
+            <span data-id="en">Lightweight stock and pricing management tool for a retail store — fast to deploy and easy to use.</span>
+            <span data-id="id">Tools manajemen stok dan harga yang ringan untuk toko retail — cepat di-deploy dan mudah digunakan.</span>
+          </p>
+          <div class="project-meta">
+            <div class="project-stack">
+              <span class="stack-tag">Delphi</span>
+              <span class="stack-tag">MS Access</span>
+            </div>
+            <span class="project-year">2023</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section id="experience">
+  <div class="section-inner">
+    <p class="section-label">
+      <span data-id="en">Career History</span>
+      <span data-id="id">Riwayat Karier</span>
+    </p>
+    <h2 class="section-title">
+      <span data-id="en">Work Experience</span>
+      <span data-id="id">Pengalaman Kerja</span>
+    </h2>
+    <div class="timeline">
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot">💼</div>
+        <div class="timeline-body">
+          <p class="timeline-period">Sep 2022 – Mar 2026</p>
+          <h3 class="timeline-role">
+            <span data-id="en">Production Manager</span>
+            <span data-id="id">Manajer Produksi</span>
+          </h3>
+          <p class="timeline-company">Morning Glory Enterprise</p>
+          <ul>
+            <li data-id="en">Led Web & Mobile production division across Flutter, Silverstripe, Next.js, Express.js, MySQL</li>
+            <li data-id="id">Memimpin divisi produksi Web & Mobile dengan stack: Flutter, Silverstripe, Next.js, Express.js, MySQL</li>
+            <li data-id="en">Cross-division communication: technical recruitment, marketing proposals, conflict resolution</li>
+            <li data-id="id">Komunikasi lintas divisi: rekrutmen teknis, proposal marketing, penyelesaian konflik</li>
+            <li data-id="en">Hands-on bugfixing for live client issues across web, mobile, desktop, and data</li>
+            <li data-id="id">Bugfixing langsung untuk isu klien aktif di web, mobile, desktop, dan data</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot">📱</div>
+        <div class="timeline-body">
+          <p class="timeline-period">Sep 2020 – Sep 2022</p>
+          <h3 class="timeline-role">
+            <span data-id="en">Senior Programmer — Mobile Division</span>
+            <span data-id="id">Programmer Senior — Divisi Mobile</span>
+          </h3>
+          <p class="timeline-company">Morning Glory Enterprise</p>
+          <ul>
+            <li data-id="en">Transitioned to mobile division, leading Flutter development</li>
+            <li data-id="id">Beralih ke divisi mobile, memimpin pengembangan Flutter</li>
+            <li data-id="en">Built distributor, tracking, and attendance mobile apps</li>
+            <li data-id="id">Membangun aplikasi mobile distributor, tracking, dan absensi</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot">🖥️</div>
+        <div class="timeline-body">
+          <p class="timeline-period">Mar 2018 – Sep 2020</p>
+          <h3 class="timeline-role">
+            <span data-id="en">Senior Programmer — Desktop Division</span>
+            <span data-id="id">Programmer Senior — Divisi Desktop</span>
+          </h3>
+          <p class="timeline-company">Morning Glory Enterprise</p>
+          <ul>
+            <li data-id="en">Rejoined by CEO's personal request to resolve critical technical issues</li>
+            <li data-id="id">Bergabung kembali atas permintaan pribadi CEO untuk menyelesaikan masalah teknis kritis</li>
+            <li data-id="en">Continued development and stabilization of the core Delphi product</li>
+            <li data-id="id">Melanjutkan pengembangan dan stabilisasi produk Delphi utama</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot">🚀</div>
+        <div class="timeline-body">
+          <p class="timeline-period">Jan 2004 – Feb 2012</p>
+          <h3 class="timeline-role">
+            <span data-id="en">Founder & Head of Production</span>
+            <span data-id="id">Pendiri & Kepala Produksi</span>
+          </h3>
+          <p class="timeline-company">Morning Glory Enterprise</p>
+          <ul>
+            <li data-id="en">Co-founded software house — grew team from 3 to 12 in 8 years</li>
+            <li data-id="id">Mendirikan software house — mengembangkan tim dari 3 menjadi 12 orang dalam 8 tahun</li>
+            <li data-id="en">Delivered custom software to 20+ clients across 6+ industries</li>
+            <li data-id="id">Mengerjakan perangkat lunak khusus untuk 20+ klien di 6+ industri</li>
+            <li data-id="en">Built a proprietary Delphi framework still used as the core foundation today</li>
+            <li data-id="id">Membangun framework Delphi proprietary yang masih digunakan sebagai fondasi utama hingga kini</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item fade-up">
+        <div class="timeline-dot">🌏</div>
+        <div class="timeline-body">
+          <p class="timeline-period">Aug 2002 – Jan 2004</p>
+          <h3 class="timeline-role">Programmer</h3>
+          <p class="timeline-company">LGSTech (Netherlands-based)</p>
+          <ul>
+            <li data-id="en">Developed Windows desktop applications in Java for international clients</li>
+            <li data-id="id">Mengembangkan aplikasi desktop Windows menggunakan Java untuk klien internasional</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">
+      <span data-id="en">Get In Touch</span>
+      <span data-id="id">Hubungi Saya</span>
+    </p>
+    <h2 class="section-title">
+      <span data-id="en">Let's Work Together</span>
+      <span data-id="id">Mari Bekerja Sama</span>
+    </h2>
+    <p class="section-sub">
+      <span data-id="en">Available for freelance projects — desktop systems, mobile apps, database design, or system analysis. Let's talk about your needs.</span>
+      <span data-id="id">Tersedia untuk proyek freelance — sistem desktop, aplikasi mobile, desain database, atau analisis sistem. Mari diskusikan kebutuhan Anda.</span>
+    </p>
+    <div class="contact-cards">
+      <a href="mailto:yennysetyawati@gmail.com" class="contact-card">
+        <div class="contact-card-icon">✉️</div>
+        <div class="contact-card-label">Email</div>
+        <div class="contact-card-value">yennysetyawati@gmail.com</div>
+      </a>
+      <a href="https://wa.me/6281233665758" target="_blank" class="contact-card">
+        <div class="contact-card-icon">💬</div>
+        <div class="contact-card-label">WhatsApp</div>
+        <div class="contact-card-value">0812-3366-5758</div>
+      </a>
+      <a href="https://www.upwork.com/freelancers/yennysetyawati" target="_blank" class="contact-card">
+        <div class="contact-card-icon">💼</div>
+        <div class="contact-card-label">Upwork</div>
+        <div class="contact-card-value">View Profile</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span data-id="en">© 2026 Yenny Setyawati · Surabaya, Indonesia · Built with care, not a template.</span>
+  <span data-id="id">© 2026 Yenny Setyawati · Surabaya, Indonesia · Dibuat dengan teliti, bukan dari template.</span>
+</footer>
+
+<script>
+  // ── LANGUAGE ──
+  function setLang(lang) {
+    document.body.className = 'lang-' + lang;
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-id').classList.toggle('active', lang === 'id');
+  }
+
+  // ── FILTER ──
+  function filterProjects(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.project-card').forEach(card => {
+      const match = cat === 'all' || card.dataset.category === cat;
+      card.style.display = match ? 'flex' : 'none';
+    });
+  }
+
+  // ── SCROLL ANIMATIONS ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
